@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body></body>
+  <body>
+    <div id="root"></div>
+  </body>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script>
     // Our code using ReactJS goes here
+    const root = document.getElementById("root");
+    const span = React.createElement("span", { id: "sexy-span", style: { color: "red" } }, "Hello I'm a span");
+    ReactDOM.render(span, root);
   </script>
 </html>
