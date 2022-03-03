@@ -4,10 +4,10 @@
     <div id="root"></div>
   </body>
   <!-- React -->
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
 
   <!-- React-Dom -->
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
 
   <!-- Babel. Their output is inject to <head> -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -16,20 +16,13 @@
 
     // Components should start with Upper-Case Letter to differentiate between HTML tag and React Component
     const App = () => {
-      const [counter, setCounter] = React.useState(0);
-
-      /// 이 counter 라는 값이, 다른 곳에서도 변경될 수 있다고 생각해보자. 10 더해졌다고 생각해보자.
-      /// 리스너를 등록하는 시점에 (정확히는 Refresh 가 일어나는 시점에) counter + 1 로 고정되어버리기 때문에,
-      /// 원래대로라면 11이 더해져야 하지만, 1만 더해지고 화면이 refresh 되는 경우가 생길 수도 있다.
-      /// 이를 방지하기 위해서, counter 값을 저장해두고 사용하는 것이 아니라, anonymous function 을 제공해서, 그 때 값을 가지고 올바르게 동작할 수 있도록 한다.
-      const onClick = () => {
-        setCounter((value) => value + 1);
-      };
-
       return (
         <div>
-          <h3>Total Clicks: {counter}</h3>
-          <button onClick={onClick}>Click me</button>
+          <h1>Super Converter </h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input id="minutes" placeholder="Minutes" type="number" />
+          <label htmlFor="hours">Hours</label>
+          <input id="hours" placeholder="Hours" type="number" />
         </div>
       );
     };
