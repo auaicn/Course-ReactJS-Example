@@ -3,15 +3,26 @@
   <body>
     <div id="root"></div>
   </body>
+  <!-- React -->
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+
+  <!-- React-Dom -->
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+
+  <!-- Babel. Their output is inject to <head> -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    const Title = <h3 id="title">Hello I'm title</h3>;
-    const Button = <button onClick={() => console.log("I'm clicked")}>Click me</button>;
-    const Container = React.createElement("div", null, [Title, Button]);
+    // Components should start with Upper-Case Letter to differentiate between HTML tag and React Component
+    const Title = () => <h3 id="title">Hello I'm title</h3>;
+    const Button = () => <button onClick={() => console.log("I'm clicked")}>Click me</button>;
+    const Container = (
+      <div>
+        <Title />
+        <Button />
+      </div>
+    );
 
     ReactDOM.render(Container, root);
   </script>
