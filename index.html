@@ -5,22 +5,14 @@
   </body>
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script>
-    // Our code using ReactJS goes here
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel;">
     const root = document.getElementById("root");
-    const span = React.createElement("h3", null, "Hello I'm a span");
-    const button = React.createElement(
-      "button",
-      {
-        onClick: () => console.log("im clicked"),
-        onMouseEnter: () => console.log("mouse entered"),
-        style: {
-          backgroundColor: "green",
-        },
-      },
-      "Click me",
-    );
-    const div = React.createElement("div", null, [span, button]);
-    ReactDOM.render(div, root);
+
+    const Title = <h3 id="title">Hello I'm title</h3>;
+    const Button = <button onClick = {() =>console.log("I'm clicked")} >Click me</button>;
+    const Container = React.createElement('div', null, [Title, Button]);
+
+    ReactDOM.render(Container, root);
   </script>
 </html>
