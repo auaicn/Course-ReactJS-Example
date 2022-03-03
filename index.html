@@ -14,24 +14,20 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    let counter = 0;
-
-    function countUp() {
-      counter = counter + 1;
-      // cons : we should remember to render again
-      // pros : Actually, only changed parts of html is rendered like Flutter
-      render();
-    }
-
-    const render = () => ReactDOM.render(<Container />, root);
-
     // Components should start with Upper-Case Letter to differentiate between HTML tag and React Component
-    const Container = () => (
-      <div>
-        <h3>Total Clicks: {counter}</h3>
-        <button onClick={countUp}>Click me</button>
-      </div>
-    );
-    render();
+    const App = () => {
+      const [counter, setCounter] = React.useState(0);
+      const onClick = () => {
+        setCounter(counter + 1);
+      };
+      return (
+        <div>
+          <h3>Total Clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, root);
   </script>
 </html>
