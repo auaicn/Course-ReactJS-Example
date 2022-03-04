@@ -12,93 +12,21 @@
   <!-- Babel. Their output is inject to <head> -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const root = document.getElementById("root");
-
-    const MinutesToHours = () => {
-      const [amount, setAmounts] = React.useState(0);
-      const [byMinutes, setByMinutes] = React.useState(true);
-
-      const reset = () => setAmounts(0);
-      const onFlip = () => {
-        reset();
-        setByMinutes((value) => !value);
-      };
-      const onChangedAmounts = (event) => setAmounts(event.target.value);
-
-      return (
-        <div>
-          <div>
-            <label htmlFor="Minutes">Minutes</label>
-            <br />
-            <input value={byMinutes ? amount : 60 * amount} id="amount" placeholder="Minutes" type="number" onChange={onChangedAmounts} disabled={!byMinutes} />
-          </div>
-          <div>
-            <label htmlFor="hours">Hours (rounded)</label>
-            <br />
-            <input value={byMinutes ? Math.round(amount / 60) : amount} id="hours" placeholder="Hours" type="number" onChange={onChangedAmounts} disabled={byMinutes} />
-          </div>
-          <button onClick={reset}>Reset</button>
-          <button onClick={onFlip}>{byMinutes ? "Convert using Hour" : "Convert using Minute"}</button>
-        </div>
-      );
-    };
-
-    const KilometersToMiles = () => {
-      const [base, setBase] = React.useState("km");
-      const [userInput, setUserInput] = React.useState(0);
-
-      const clear = () => setUserInput(0);
-      const onChangedInput = (event) => setUserInput(event.target.value);
-
-      const changeBase = () => {
-        clear();
-
-        if (base === "km") {
-          setBase("miles");
-        } else {
-          setBase("km");
-        }
-      };
-
-      return (
-        <div>
-          <label>Kilimeters</label>
-          <br />
-          <input value={base === "km" ? userInput : userInput * 1.609344} onChange={onChangedInput} disabled={base === "miles"}></input>
-          <br />
-          <label>Miles</label>
-          <br />
-          <input value={base === "miles" ? userInput : userInput * 0.621371} onChange={onChangedInput} disabled={base === "km"}></input>
-          <br />
-          <button onClick={changeBase}>change base</button>
-          <button onClick={clear}>clear</button>
-        </div>
-      );
+    const CustomButton = ({ text }) => {
+      return <button style={{ backgroundColor: "tomato", color: "white", padding: "10px 20px", border: 0, borderRadius: 10 }}>{text}</button>;
     };
 
     const App = () => {
-      const [index, setIndex] = React.useState("xx");
-
-      const onChange = (event) => setIndex(event.target.value);
-
-      console.log("rendering with option-value [", index, "]");
-
       return (
         <div>
-          <h1>Super Converter</h1>
-          <select onChange={onChange}>
-            <option value="xx">Select your units</option>
-            <option value="0">Minutes & Hours</option>
-            <option value="1">Km & Miles</option>
-          </select>
-          <hr />
-          {index === "xx" ? "Please select your units" : null}
-          {index === "0" ? <MinutesToHours /> : null}
-          {index === "1" ? <KilometersToMiles /> : null}
+          <CustomButton text="Save Changes" />
+          <CustomButton text="Confirm" />
         </div>
       );
     };
 
+    // 같이 두는게, 보기 좋은 것 같다.
+    const root = document.getElementById("root");
     ReactDOM.render(<App />, root);
   </script>
 </html>
