@@ -14,10 +14,7 @@
   <script type="text/babel">
     const root = document.getElementById("root");
 
-    // Components should start with Upper-Case Letter to differentiate between HTML tag and React Component
-    const App = () => {
-      /// parameter of useState can be empty but, development-version React warns that
-      /// because their type during runtime is changed from "undefined" to "number"
+    const MinutesToHours = () => {
       const [amount, setAmounts] = React.useState(0);
       const [byMinutes, setByMinutes] = React.useState(true);
 
@@ -30,7 +27,6 @@
 
       return (
         <div>
-          <h1>Super Converter </h1>
           <div>
             <label htmlFor="Minutes">Minutes</label>
             <br />
@@ -43,6 +39,62 @@
           </div>
           <button onClick={reset}>Reset</button>
           <button onClick={onFlip}>{byMinutes ? "Convert using Hour" : "Convert using Minute"}</button>
+        </div>
+      );
+    };
+
+    const KilometersToMiles = () => {
+      const [base, setBase] = React.useState("km");
+      const [userInput, setUserInput] = React.useState(0);
+
+      const clear = () => setUserInput(0);
+      const onChangedInput = (event) => setUserInput(event.target.value);
+
+      const changeBase = () => {
+        clear();
+
+        if (base === "km") {
+          setBase("miles");
+        } else {
+          setBase("km");
+        }
+      };
+
+      return (
+        <div>
+          <label>Kilimeters</label>
+          <br />
+          <input value={base === "km" ? userInput : userInput * 1.609344} onChange={onChangedInput} disabled={base === "miles"}></input>
+          <br />
+          <label>Miles</label>
+          <br />
+          <input value={base === "miles" ? userInput : userInput * 0.621371} onChange={onChangedInput} disabled={base === "km"}></input>
+          <br />
+          <button onClick={changeBase}>change base</button>
+          <button onClick={clear}>clear</button>
+        </div>
+      );
+    };
+
+    const App = () => {
+      const [index, setIndex] = React.useState("xx");
+
+      const onChange = (event) => setIndex(event.target.value);
+
+      console.log("rendering with option-value [", index, "]");
+
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <select onChange={onChange}>
+            <option value="xx">Select your units</option>
+            <option value="0">Minutes & Hours</option>
+            <option value="1">Km & Miles</option>
+          </select>
+          <hr />
+          {index === "xx" ? "Please select your units" : null}
+          {index === "0" ? <MinutesToHours /> : null}
+          {index === "1" ? <KilometersToMiles /> : null}
         </div>
       );
     };
