@@ -9,28 +9,33 @@
   <!-- React-Dom -->
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
 
+  <!-- PropType -->
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+
   <!-- Babel. Their output is inject to <head> -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const CustomButton = ({ text, onClick }) => {
-      console.log(text, "has rendered");
+    const CustomButton = ({ text, fontSize }) => {
+      console.log(text, "has rendered with fontSize", fontSize);
 
-      return (
-        <button onClick={onClick} style={{ backgroundColor: "tomato", color: "white", padding: "10px 20px", border: 0, borderRadius: 10 }}>
-          {text}
-        </button>
-      );
+      return <button style={{ backgroundColor: "tomato", color: "white", padding: "10px 20px", border: 0, borderRadius: 10, fontSize }}>{text}</button>;
+    };
+
+    // 적용은 되지만, warning 수준인 것으로 보인다.
+    CustomButton.propTypes = {
+      text: PropTypes.string.isRequired,
+      fontSize: PropTypes.number,
     };
 
     const MemorizedCustomButton = React.memo(CustomButton);
 
     const App = () => {
-      const [value, setValue] = React.useState("Save Changes");
-      const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <MemorizedCustomButton text={value} onClick={changeValue} />
-          <MemorizedCustomButton text="Continue" />
+          <MemorizedCustomButton text="only text" />
+          <MemorizedCustomButton text="text with font size" fontSize={20} />
+          <MemorizedCustomButton text="text with wrong type font size " fontSize="small" />
+          <MemorizedCustomButton />
         </div>
       );
     };
