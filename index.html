@@ -16,11 +16,20 @@
 
     // Components should start with Upper-Case Letter to differentiate between HTML tag and React Component
     const App = () => {
+      /// parameter of useState can be empty but, development-version React warns that
+      /// because their type during runtime is changed from "undefined" to "number"
+      const [minutes, setMinutes] = React.useState(0);
+
+      const onChangedMinutes = (event) => {
+        setMinutes(event.target.value);
+      };
+
       return (
         <div>
           <h1>Super Converter </h1>
           <label htmlFor="minutes">Minutes</label>
-          <input id="minutes" placeholder="Minutes" type="number" />
+          <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChangedMinutes} />
+          <h4>You want to convert {minutes}</h4>
           <label htmlFor="hours">Hours</label>
           <input id="hours" placeholder="Hours" type="number" />
         </div>
