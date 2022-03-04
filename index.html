@@ -12,15 +12,25 @@
   <!-- Babel. Their output is inject to <head> -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    const CustomButton = ({ text }) => {
-      return <button style={{ backgroundColor: "tomato", color: "white", padding: "10px 20px", border: 0, borderRadius: 10 }}>{text}</button>;
+    const CustomButton = ({ text, onClick }) => {
+      console.log(text, "has rendered");
+
+      return (
+        <button onClick={onClick} style={{ backgroundColor: "tomato", color: "white", padding: "10px 20px", border: 0, borderRadius: 10 }}>
+          {text}
+        </button>
+      );
     };
 
+    const MemorizedCustomButton = React.memo(CustomButton);
+
     const App = () => {
+      const [value, setValue] = React.useState("Save Changes");
+      const changeValue = () => setValue("Revert Changes");
       return (
         <div>
-          <CustomButton text="Save Changes" />
-          <CustomButton text="Confirm" />
+          <MemorizedCustomButton text={value} onClick={changeValue} />
+          <MemorizedCustomButton text="Continue" />
         </div>
       );
     };
