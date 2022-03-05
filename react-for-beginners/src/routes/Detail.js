@@ -39,7 +39,7 @@ const Detail = () => {
               ))}
             </ul>
             <h3>Summary</h3>
-            <p> {movie.description_intro}</p>
+            <p>{movie.description_intro}</p>
           </div>
         </div>
       )}
