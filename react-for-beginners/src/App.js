@@ -5,7 +5,7 @@ import Home from "./routes/Home";
 function App() {
   // Switch
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       {/* 한번에 하나의 Route 만 렌더링 하기 위함 */}
       <Routes>
         <Route path="/" element={<Home />} />
