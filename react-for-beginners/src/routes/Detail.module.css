@@ -1,0 +1,16 @@
+.splitScreen {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.leftPane {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.rightPane {
+  grid-row: 1;
+  grid-column: 2;
+}
