@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import CoinTracker from "./practices/CoinTracker";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CoinTracker />
+    <App />
   </React.StrictMode>,
   document.getElementById("root"),
 );
