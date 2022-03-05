@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Course-Serving-Movies-Online-with-ReactJS/static/css/main.197e6308.css",
-    "main.js": "/Course-Serving-Movies-Online-with-ReactJS/static/js/main.63c97600.js",
+    "main.js": "/Course-Serving-Movies-Online-with-ReactJS/static/js/main.335c58e5.js",
     "index.html": "/Course-Serving-Movies-Online-with-ReactJS/index.html",
     "main.197e6308.css.map": "/Course-Serving-Movies-Online-with-ReactJS/static/css/main.197e6308.css.map",
-    "main.63c97600.js.map": "/Course-Serving-Movies-Online-with-ReactJS/static/js/main.63c97600.js.map"
+    "main.335c58e5.js.map": "/Course-Serving-Movies-Online-with-ReactJS/static/js/main.335c58e5.js.map"
   },
   "entrypoints": [
     "static/css/main.197e6308.css",
-    "static/js/main.63c97600.js"
+    "static/js/main.335c58e5.js"
   ]
 }
