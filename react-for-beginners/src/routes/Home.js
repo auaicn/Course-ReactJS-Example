@@ -27,7 +27,7 @@ const Home = () => {
           {movies.map((movie) => (
             <Movie
               key={movie.id}
-              title_with_year={movie.title_long}
+              titleWithYear={movie.title_long}
               genres={movie.genres}
               summary={movie.summary}
               coverImgageSource={movie.medium_cover_image}

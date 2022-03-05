@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
-function Movie({ title_with_year, genres, summary, coverImgageSource }) {
+function Movie({ titleWithYear, genres, summary, coverImgageSource }) {
   return (
     <div>
-      <img src={coverImgageSource} alt={title_with_year + "image"}></img>
-      <h3>{title_with_year}</h3>
+      <img src={coverImgageSource} alt={titleWithYear + "image"}></img>
+      <h3>{titleWithYear}</h3>
       <ul>
         {genres.map((genre, index) => (
           <li key={index}>{genre}</li>
@@ -16,7 +16,7 @@ function Movie({ title_with_year, genres, summary, coverImgageSource }) {
 }
 
 Movie.propTypes = {
-  title_with_year: PropTypes.string.isRequired,
+  titleWithYear: PropTypes.string.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   summary: PropTypes.string.isRequired,
   coverImgageSource: PropTypes.string.isRequired,
