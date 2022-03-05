@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Course-Serving-Movies-Online-with-ReactJS/static/css/main.197e6308.css",
+    "main.js": "/Course-Serving-Movies-Online-with-ReactJS/static/js/main.599243d4.js",
+    "index.html": "/Course-Serving-Movies-Online-with-ReactJS/index.html",
+    "main.197e6308.css.map": "/Course-Serving-Movies-Online-with-ReactJS/static/css/main.197e6308.css.map",
+    "main.599243d4.js.map": "/Course-Serving-Movies-Online-with-ReactJS/static/js/main.599243d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.197e6308.css",
+    "static/js/main.599243d4.js"
+  ]
+}
